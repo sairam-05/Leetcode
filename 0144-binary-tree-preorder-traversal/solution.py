@@ -4,15 +4,15 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-
 class Solution:
-    def __init__(self):
-
-      self.result=[]
     def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-        if root==None:
-            return []
-        self.result.append(root.val)
-        self.preorderTraversal(root.left)
-        self.preorderTraversal(root.right)
-        return self.result
+        result=[]
+        def preorder(ptr):
+
+            if ptr:
+                result.append(ptr.val)
+                preorder(ptr.left)
+                preorder(ptr.right)
+        preorder(root)
+        return result
+            
