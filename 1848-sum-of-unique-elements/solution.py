@@ -1,14 +1,17 @@
 class Solution:
     def sumOfUnique(self, nums: List[int]) -> int:
-        ans=0
         d={}
-        for num in nums:
-            if num in d:
-                d[num]+=1
+        r=0
+        for  i in range(len(nums)):
+            if nums[i] in d:
+                d[nums[i]]+=1
             else:
-                d[num]=1
+                d[nums[i]]=1
         for k,v in d.items():
-            if v==1:
-                ans+=k
-        return ans
-        
+            if v<2:
+                r+=k
+        if r>0:
+            return r
+        else:
+            return 0
+
